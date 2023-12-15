@@ -71,7 +71,7 @@ void _push(stack_t **front, unsigned int count)
 	}
 	else
 	{
-		addnode(front, d);
+		add_node(front, d);
 	}
 }
 
