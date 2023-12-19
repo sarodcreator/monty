@@ -12,9 +12,10 @@
 void _div(stack_t **front, unsigned int count)
 {
 	stack_t *f;
-	stack-t *new_node;
+	stack_t *new_node;
 	int len, temp;
 
+	len = 0;
 	f = *front;
 	while (f)
 	{
@@ -38,9 +39,9 @@ void _div(stack_t **front, unsigned int count)
 		free_stack(*front);
 		exit(EXIT_FAILURE);
 	}
-	new_node = (*f).next;
-	temp = (*new_node).n / (*f).n;
-	(*new_node).n = temp;
-	*front = (*new_node).n;
+	new_node = f->next;
+	temp = new_node->n / f->n;
+	new_node->n = temp;
+	*front = new_node;
 	free(f);
 }

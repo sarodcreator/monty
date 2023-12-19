@@ -7,7 +7,7 @@
  *
  * Return: None.
  */
-void add_node(stack_t **front, int n)
+void addnode(stack_t **front, int n)
 {
 	stack_t *new;
 

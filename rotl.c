@@ -5,28 +5,29 @@
  * @front: Pointer to the first node of the stack
  *
  * Return: None
- */
-void _rotl(stack_t **front)
-{
-	stack_t *current, *new_front, *last;
+*/
 
-	if (front == NULL || *front == NULL || (*front).next == NULL)
+void _rotl(stack_t **front, __attribute__((unused)) unsigned int count)
+{
+	stack_t *current, *new_front;
+
+	if (front == NULL || *front == NULL || (*front)->next == NULL)
 	{
 		return;
 	}
 
 	current = *front;
-	new_front = (*front).next;
-	new_front.prev = NULL;
+	new_front = (*front)->next;
+	new_front->prev = NULL;
 
-	while (current.next != NULL)
+	while (current->next != NULL)
 	{
-		current = current.next;
+		current = current->next;
 	}
 
-	current.next = *front;
-	(*front).next = NULL;
-	(*front).prev = &current;
+	current->next = *front;
+	(*front)->next = NULL;
+	(*front)->prev = current;
 
-	*front = &new_front;
+	*front = new_front;
 }

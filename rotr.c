@@ -10,13 +10,14 @@
 
 void _rotr(stack_t **front, __attribute__((unused)) unsigned int count)
 {
+	stack_t *new_tail;
+
 	if (front == NULL || *front == NULL || (*front)->next == NULL)
 	{
 	    return;
 	}
 
-	stack_t *current = *front;
-	stack_t *new_tail = *front;
+	new_tail = *front;
 
 	while (new_tail->next != NULL)
 	{

@@ -10,15 +10,15 @@ void _pall (stack_t  **front, unsigned int count)
 {
 	stack_t  *f;
 	
-	(void)count;
+	count = count;
 	f  = *front;
 	
 	if  (f != NULL)
 	{
 		while (f)
 		{
-			printf("%d\n", (*f).n);
-			f = (*f).next;
+			printf("%d\n", f->n);
+			f = f->next;
 		}
 	}
 	else
@@ -47,13 +47,14 @@ void _push(stack_t **front, unsigned int count)
 		fprintf(stderr, "L%d: usage : push integer\n", count);
 		fclose (global.fd);
 		free (global.content);
-		free_stack(EXIT_FAILURE);
+		free_stack(*front);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
 		if (global.token[0] == '-')
 			n++;
-		for (; global.token[n] > 57 || global.token[n] <  48)
+		for (; global.token[n] > 57 || global.token[n] <  48;)
 			flag = 1;
 		if (flag > 0 && flag < 2)
 		{
@@ -67,11 +68,11 @@ void _push(stack_t **front, unsigned int count)
 	
 	if (global.token != 0)
 	{
-		addqueue(*front, d);
+		addqueue(front, d);
 	}
 	else
 	{
-		add_node(front, d);
+		addnode(front, d);
 	}
 }
 
@@ -82,17 +83,17 @@ void _push(stack_t **front, unsigned int count)
  *
  * Return: none
  */
-void _pint (stack_t *front, unsigned int count)
+void _pint (stack_t **front, unsigned int count)
 {
 	if (*front == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", count);
 		fclose(global.fd);
 		free(global.content);
-		free-stack(*front);
+		free_stack(*front);
 		exit (EXIT_FAILURE);
 	}
-	printf("%d\n", (*(*front)).n)
+	printf("%d\n", (*front)->n);
 }
 
 /**
@@ -112,11 +113,11 @@ void _pop(stack_t **front, unsigned int count)
 		fclose(global.fd);
 		free(global.content);
 		free_stack(*front);
-		exit(EXIT_FAILURES);
+		exit(EXIT_FAILURE);
 	}
 
 	f = *front;
-	*head = (*f).next;
+	*front = f->next;
 	free(f);
 }
 
@@ -134,13 +135,13 @@ void _swap (stack_t **front, unsigned int count)
 	stack_t *new_node;
 	
 	int len = 0;
-	temp;
+	int temp;
 
 	f = *front;
 
 	while(f)
 	{
-		f = (*f).next;
+		f = f->next;
 		len++;
 	}
 	if (len <=  1)
@@ -152,7 +153,7 @@ void _swap (stack_t **front, unsigned int count)
 		exit(EXIT_FAILURE);
 	}
 	f = *front;
-	temp = (*f).n;
+	temp = f->n;
 	new_node = f->next;
 	f->n = new_node->n;
 	new_node->n = temp;

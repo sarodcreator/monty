@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /**
  * _stack - free stack
  * @front: first node (not used)
@@ -8,7 +10,7 @@
 
 void _stack(stack_t **front, unsigned int count)
 {
-	head = head;
+	front = front;
 	count = count;
 
 	global.lifo = 0;
@@ -22,9 +24,9 @@ void _stack(stack_t **front, unsigned int count)
  * Return: none
  */
 
-void _queue(stack_t **head, unsigned int count)
+void _queue(stack_t **front, unsigned int count)
 {
-	head = head;
+	front = front;
 	count = count;
 
 	global.lifo = 1;

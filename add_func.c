@@ -28,9 +28,9 @@ void _add (stack_t **front, unsigned int count)
 		free_stack(*front);
 		exit(EXIT_FAILURE);
 	}
-	f = *front
-	temp = (*f).n + (*f).next.n;
-	(*f).next.n = temp
-	*front = (*f).next;
+	f = *front;
+	temp = f->n + f->next->n;
+	f->next->n = temp;
+	front = &f->next;
 	free(f);
 }

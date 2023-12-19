@@ -63,12 +63,12 @@ extern global_var_t  global;
 /**______builtin1.c______*/
 void _pall (stack_t  **front, unsigned int count);
 void _push(stack_t **front, unsigned int count);
-void _pint (stack_t *front, unsigned int count);
+void _pint (stack_t **front, unsigned int count);
 void _pop(stack_t **front, unsigned int count);
 void _swap (stack_t **front, unsigned int count);
 
 /**______builtin2.c______*/
-void _nop(stack-t **front, unsigned int count);
+void _nop(stack_t **front, unsigned int count);
 
 /**______add-func.c_____*/
 void _add (stack_t **front, unsigned int count);
@@ -113,4 +113,13 @@ void addnode(stack_t **front, int n);
 /**______exe.c______*/
 int exe(char *content, stack_t **stack, unsigned int count, FILE *fd);
 
+/**______handle_error.c______*/
+void handle_error(const char *message, FILE *file, char *content, stack_t *stack);
+
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+
+char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getstdin(char **lineptr, int file);
+
+char  *clean_line(char *content);
 #endif

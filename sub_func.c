@@ -32,7 +32,7 @@ void _sub(stack_t **front, unsigned int count)
 		exit(EXIT_FAILURE);
 	}
 	temp = *front;
-	new_node = temp->next
+	new_node = temp->next;
 	sub = new_node->n - temp->n;
 	new_node->n = sub;
 	*front = new_node;

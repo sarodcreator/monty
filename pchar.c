@@ -22,7 +22,7 @@ void _pchar(stack_t **front, unsigned int count)
 	if ((*front)->n < 0 || (*front)->n >= 128)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", count);
-		fclose(global.file);
+		fclose(global.fd);
 		free(global.content);
 		free_stack(*front);
 		exit(EXIT_FAILURE);

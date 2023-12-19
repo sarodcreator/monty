@@ -17,7 +17,7 @@ void _mul(stack_t **front, unsigned int count)
 	len = 0;
 	while (f)
 	{
-		f = (*f).next;
+		f = f->next;
 		len++;
 	}
 	if (len <= 1)
@@ -28,9 +28,9 @@ void _mul(stack_t **front, unsigned int count)
 		free_stack(*front);
 		exit(EXIT_FAILURE);
 	}
-	new_node = (*f).next;
-	temp = (*new_node).n / (*f).n;
-	(*new_node).n = temp;
-	*front = (*new_node).n;
+	new_node = f->next;
+	temp = new_node->n / f->n;
+	new_node->n = temp;
+	*front = new_node;
 	free(f);
 }

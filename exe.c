@@ -38,7 +38,7 @@ int exe(char *content, stack_t **stack, unsigned int count, FILE *fd)
 	p = strtok(content, " \n\t");
 	if (p && p[0] == '#')
 		return (0);
-	global.arg = strtok(NULL, " \n\t");
+	global.token = strtok(NULL, " \n\t");
 	for (n = 0; opst[n].opcode && p; n++)
 	{
 		if (strcmp(p, opst[n].opcode) == 0)

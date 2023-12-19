@@ -6,15 +6,16 @@
  * Return: none
  */
 
-void free_stack(stack_t **front)
+void free_stack(stack_t *front)
 {
-	stack_t *current = *front;
+	stack_t *current, *next_node;
+	current = front;
 	while (current != NULL)
 	{
-		stack_t *next_node = current->next;
+		next_node = current->next;
 		free(current);
 		current = next_node; 
 	}
 
-	*front = NULL;
+	front = NULL;
 }

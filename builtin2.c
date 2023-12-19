@@ -8,7 +8,7 @@
  * Return: none
  */
 
-void _nop(stack-t **front, unsigned int count)
+void _nop(stack_t **front, unsigned int count)
 {
 	count = count;
 	front = front;
